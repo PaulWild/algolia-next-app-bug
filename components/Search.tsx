@@ -14,6 +14,7 @@ import {
 import { InstantSearchNext } from "react-instantsearch-nextjs";
 
 import { Panel } from "./Panel";
+import Link from "next/link";
 
 type HitProps = {
   hit: AlgoliaHit<{
@@ -34,6 +35,7 @@ function Hit({ hit }: HitProps) {
     <>
       <Highlight hit={hit} attribute="name" className="Hit-label" />
       <span className="Hit-price">${hit.price}</span>
+      <Link href={`/item/${hit.objectID}`}>Goto</Link>
     </>
   );
 }
